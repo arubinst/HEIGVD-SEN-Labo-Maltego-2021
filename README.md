@@ -145,6 +145,8 @@ Utilisez quelques résultats retrouvés lors de vos recherches précédentes pou
 
 Captures d'écran et commentaires en format PDF ou directement sur le README.md
 
+Le rendu se fait à travers un "pull request". 
+
 # Echéance
 
 Le 8 mars 2021 à 13h15
