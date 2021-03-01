@@ -82,6 +82,22 @@ Lorsque les transformations seront terminées, nous aurons un graphique supplém
 
 N'hésitez pas à tester d'autres domaines.
 
+### TP: Analyse de `chammartin-spicher.ch`
+
+Analyse du domaine de l'entreprise du projet d'AST.
+
+![](images/screens/screen1.png)
+
+Le domain seul ne donne pas beaucoup d'information. Il faut aller chercher dans les sous-domaines comme `www.chammartin-spicher.ch` puis `chammartin-spicher.ch` (le site pas le domaine).
+
+![](images/screens/screen2.png)
+
+![](images/screens/screen3.png)
+
+![](images/screens/screen4.png)
+
+On peut voir maintenant des adresses emails sortir que l'on peut analyser ensuite.
+
 ## Recherche d'une identité
 
 Si vous avez déjà une identité d'une personne que vous voulez rechercher, vous pouvez procéder directement avec Maltego. Commencez avec un nouveau graphique et rajoutez une personne avec l'entité Person. 
@@ -102,6 +118,16 @@ Dans mon cas, je trouve mon adresse email de la HEIG-VD et l'une de mes adresses
 
 Faites quelques recherches, avec des noms que vous connaissez (vous-même y-compris). Est-ce que vous arrivez à trouver des adresses email associées ? N'oubliez pas vos captures et commentaires.
 
+### TP: Recherche d'identités
+
+J'ai testé le professeur afin de m'assurer que cela fonctionne correctement. Cependant je n'ai rien trouvé sur moi ou ma mère.
+
+![](images/screens/screen5.png)
+
+Par contre, Donald Trump a pas mal d'email.
+
+![](images/screens/screen6.png)
+
 ## Recherche d'une adresse email
 
 Si vous n'avez pas le nom d'une personne, mais une adresse email, vous pouvez aussi commencer votre recherche directement par l'adresse en question. Dans ce cas là, le résultat de la recherche pourrait vous trouver l'identité associée à cette adresse ainsi que d'autres détails comme, par exemple, une organisation, un numéro de téléphone, etc.
@@ -111,6 +137,12 @@ Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address*
 ![Email search](images/email_search.png)
 
 Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
+
+### TP: Recherche d'email
+
+On peut voir qu'on retrouve les domaines respectifs. Maltego permet aussi de retrouver une personne à partir d'une email comme constaté avec la 1ère email.
+
+![](images/screens/screen7.png)
 
 
 ## Installation et utilisation de nouvelles transformations
