@@ -1,5 +1,8 @@
 # Labo découverte Maltego
 
+> Auteur: Gil Balsiger
+> Date: 1 mars 2021
+
 ## Introduction
 
 Maltego est un outil de data mining capable d'explorer une variété de ressources de données open-source et utilise ces données pour créer des graphs permettant d'analyser des éventuelles connexions identifiées entre ces différentes ressources.
@@ -82,6 +85,22 @@ Lorsque les transformations seront terminées, nous aurons un graphique supplém
 
 N'hésitez pas à tester d'autres domaines.
 
+### TP: Analyse de `chammartin-spicher.ch`
+
+Analyse du domaine de l'entreprise du projet d'AST.
+
+![](images/screens/screen1.png)
+
+Le domain seul ne donne pas beaucoup d'information. Il faut aller chercher dans les sous-domaines comme `www.chammartin-spicher.ch` puis `chammartin-spicher.ch` (le site pas le domaine).
+
+![](images/screens/screen2.png)
+
+![](images/screens/screen3.png)
+
+![](images/screens/screen4.png)
+
+On peut voir maintenant des adresses emails sortir que l'on peut analyser ensuite.
+
 ## Recherche d'une identité
 
 Si vous avez déjà une identité d'une personne que vous voulez rechercher, vous pouvez procéder directement avec Maltego. Commencez avec un nouveau graphique et rajoutez une personne avec l'entité Person. 
@@ -102,6 +121,16 @@ Dans mon cas, je trouve mon adresse email de la HEIG-VD et l'une de mes adresses
 
 Faites quelques recherches, avec des noms que vous connaissez (vous-même y-compris). Est-ce que vous arrivez à trouver des adresses email associées ? N'oubliez pas vos captures et commentaires.
 
+### TP: Recherche d'identités
+
+J'ai testé le professeur afin de m'assurer que cela fonctionne correctement. Cependant je n'ai rien trouvé sur moi ou ma mère.
+
+![](images/screens/screen5.png)
+
+Par contre, Donald Trump a pas mal d'email.
+
+![](images/screens/screen6.png)
+
 ## Recherche d'une adresse email
 
 Si vous n'avez pas le nom d'une personne, mais une adresse email, vous pouvez aussi commencer votre recherche directement par l'adresse en question. Dans ce cas là, le résultat de la recherche pourrait vous trouver l'identité associée à cette adresse ainsi que d'autres détails comme, par exemple, une organisation, un numéro de téléphone, etc.
@@ -111,6 +140,12 @@ Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address*
 ![Email search](images/email_search.png)
 
 Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
+
+### TP: Recherche d'email
+
+On peut voir qu'on retrouve les domaines respectifs. Maltego permet aussi de retrouver une personne à partir d'une email comme constaté avec la 1ère email.
+
+![](images/screens/screen7.png)
 
 
 ## Installation et utilisation de nouvelles transformations
@@ -127,6 +162,26 @@ Vous pouvez chercher vous même des informations sur d'autres transformations di
 
 Procédez maintenant à relancer les recherches que vous avez déjà effectuées, mais utilisant exclusivement les transformations que vous venez d'installer. Est-ce que vous arrivez à trouver d'autres informations ? N'oubliez pas votre capture et commentaires.
 
+### TP: VirusTotal, Shodan et PassiveTotal
+
+Le screen ci-dessous montre les résultats avec PassiveTotal uniquement.
+
+![](images/screens/screen8.png)
+
+Ci-dessous, les résultats avec Shodan et VirusTotal.
+
+![](images/screens/screen9.png)
+
+On peut voir dans les 2 images ci-dessus que le scan a trouvé une IP: `128.65.195.34`. Essayons de creuser plus loin avec shodan.
+
+Grâce à Shodan, on peut trouver, comme indiqué sur l'image ci-dessous, les ports du serveur ouvert ainsi que les protocols utilisés et leur version. On peut remarquer aussi une vulnérabilité CVE, CVE-2019-12815. Shodan nous informe également de la localisation du serveur (en Suisse ici).
+
+![](images/screens/screen10.png)
+
+Si on analyse maintenant le même serveur avec PassiveTotal, on peut trouvé les librairies et technologies utilisées sur le site web ainsi que les certificats.
+
+![](images/screens/screen11.png)
+
 ## Et maintenant ?
 
 Est-ce qu'il vous restent encore des transforms gratuites à installer ? Vous pouvez donc procéder à l'installation d'autres transformations intéressantes comme Have I Been Pwned?, dataprovider, Farsight DNSB, FullContact, etc. Avoir un plus grand nombre de transformations installés augmente considérablement les résultats. Par contre, le volume d'information peut être difficile à gérer et à comprendre. Vous pouvez dans tous le cas, appliquer les transformations une par une au lieu de toutes en même temps.
@@ -140,6 +195,26 @@ Tous les résultats sur le graph sont utilisables pour lancer des nouvelles rech
 Utilisez quelques résultats retrouvés lors de vos recherches précédentes pour lancer des transformations sur d'autres entités de types différents à celles que vous avez déjà testé (Person, Domain, email). Est-ce que vous arrivez à trouver quelque chose d'intéressant ? Est-ce que le graph devient difficile à gérer ? Documentez vos activités avec des captures et des commentaires.
 
 [GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python ! 
+
+### TP: Comparatif
+
+| Transforms          | Notes                                                        |
+| :------------------ | :----------------------------------------------------------- |
+| Have I been Pwned ? | Vérifie si l'adresse email est utilisé sur des sites dont les données ont fuité |
+| ATT&CK MISP         | Effectue des requêtes depuis le MISP                         |
+| Blockchain.info     | Visualisation de la blockchain Bitcoin                       |
+| Discogs             | Base de données musicale                                     |
+| The Movie Database  | Base de données de films                                     |
+| OpenCorporates      | Base de données de 185 millons d'entreprises                 |
+| Social Links CE     | Effectue des requêtes avec plusieurs services (Shodan, ZoomEye, Skype, etc...) |
+| WhoisXML API        | Récupère des infos sur le propriétaire d'un domain ou IP grâce à de l'IA |
+| Wayback Machine     | Récupère l'historique d'un site web                          |
+
+Ci-dessous, j'ai testé le transformer `Have I been Pwned ?` et `Social Links CE` sur mes 2 adresses email principale.
+
+![](images/screens/screen12.png)
+
+On peut voir que je suis enregistré sur des site qui ont fuité et que j'ai 2 comptes Skype.
 
 # Livrable
 
