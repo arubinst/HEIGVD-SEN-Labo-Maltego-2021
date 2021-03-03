@@ -62,7 +62,7 @@ Quelques nouvelles informations sont apparues. Des fichiers texte pour la plupar
 
 ![](img/shodan.png)
 
-Les recherches sur les adresses mail et les personnes n'étaient pas disponible avec cette transformation.
+Les recherches sur les adresses mail n'ont rien donné de plus et les personnes n'étaient pas disponible avec cette transformation.
 
 ### PassiveTotal
 
