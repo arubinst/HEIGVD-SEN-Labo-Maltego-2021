@@ -26,19 +26,19 @@ Nous allons travailler avec la version gratuite, Maltego CE.
 ### Installation
 
 - Kali : comme déjà mentionné, Maltego est déjà pré-installé sur Kali. Vous aurez quand-même besoin de vous rendre sur le [site de Maltego](https://www.maltego.com/ce-registration/) pour créer un compte CE. Une fois votre compte crée, vous recevrez une clé qui vous permettra d'utiliser la Community Edition.
-- Téléchargement : si vous installez Maltego sur votre machine Windows, Mac ou autre version de Linux, vous pouvez le [télécharger ici](https://www.maltego.com/downloads/). Il vous faudra le [compte CE](https://www.maltego.com/ce-registration/) aussi pour cette version. 
+- Téléchargement : si vous installez Maltego sur votre machine Windows, Mac ou autre version de Linux, vous pouvez le [télécharger ici](https://www.maltego.com/downloads/). Il vous faudra le [compte CE](https://www.maltego.com/ce-registration/) aussi pour cette version.
 
 ## Transforms
 
 ![Transforms Hub](images/transform_hub.png)
 
-Maltego utilise des API pour connecter à d'autres applications et services. Maltego appelle ces connexions "Transforms" (transformations). 
+Maltego utilise des API pour connecter à d'autres applications et services. Maltego appelle ces connexions "Transforms" (transformations).
 
 Vous remarquerez qu'avec la version CE, certaines transformations sont gratuites et d'autres sont payantes. En plus, seul un petit groupe de transformations sont pré-installées. Il faudra donc dans certains cas s'enregistrer sur chaque site pour obtenir un accès à l'API de la transformation et l'activer. Ça dépendra de vos besoins.
 
 Quelques transformations sont gratuites mais elles ne peuvent pas être installées sur la version gratuite de Maltego.
 
-Nous pouvons commencer à travailler utilisant la config de base. La transformation Paterva CTAS CE est pré installée et elle fourni pas mal de fonctionnalités. On va rajouter quelques transforms intéressantes plus tard. 
+Nous pouvons commencer à travailler utilisant la config de base. La transformation Paterva CTAS CE est pré installée et elle fourni pas mal de fonctionnalités. On va rajouter quelques transforms intéressantes plus tard.
 
 ## Une simple reconnaissance de réseau
 
@@ -48,13 +48,13 @@ Cliquer sur le bouton **new graph** en haut, à gauche pour commencer un nouveau
 
 ![New graph](images/new_graph.png)
 
-Depuis la palette d'entités (**Entity Palette**) à gauche, défilez vers le bas et trouvez l'entité **Domain**. Puis, faites-la glisser dans votre graph vierge. 
+Depuis la palette d'entités (**Entity Palette**) à gauche, défilez vers le bas et trouvez l'entité **Domain**. Puis, faites-la glisser dans votre graph vierge.
 
 **Double-cliquez** sur l'icon **Domain** et changez le nom au domaine que vous voulez rechercher. Dans mon cas, j'ai choisi *heig-vd.ch*. Vous pouvez utiliser, par exemple, le domaine de l'entreprise que vous avez audité en AST, si vous avez suivi le cours. Sinon, sentez-vous libre de choisir un domaine qui vous paraît intéressant.
 
 <img src="images/domain_heig.png" width="200">
 
-Un click droit sur l'icône Domain ouvre la fenêtre d'execution de transformations, la **Run Transforms** box. On peut être assez spécifique ici et sélectionner seulement ce qui nous intéresse. Pourtant, nous allons devenir fous et simplement choisir **Run All Transforms** on sélectionnant la petite icône "fast forward" à côté. 
+Un click droit sur l'icône Domain ouvre la fenêtre d'execution de transformations, la **Run Transforms** box. On peut être assez spécifique ici et sélectionner seulement ce qui nous intéresse. Pourtant, nous allons devenir fous et simplement choisir **Run All Transforms** on sélectionnant la petite icône "fast forward" à côté.
 
 ![Run all](images/run_all.png)
 
@@ -72,7 +72,7 @@ On peut utiliser ces connexions pour en faire des nouvelles encore plus détaill
 
 ![People](images/people.png)
 
-Regardons de plus près une personne qui apparaît comme étant connectée au domaine heig-vd.ch. Il s'agit de "Bastian Gardel". Je fais clique-droit sur l'icône de Bastien et **run All Transforms**. De votre côté, sélectionnez une identité trouvée pour votre domaine et exécutez vos transformations. N'oubliez pas de faire une capture et commenter. 
+Regardons de plus près une personne qui apparaît comme étant connectée au domaine heig-vd.ch. Il s'agit de "Bastian Gardel". Je fais clique-droit sur l'icône de Bastien et **run All Transforms**. De votre côté, sélectionnez une identité trouvée pour votre domaine et exécutez vos transformations. N'oubliez pas de faire une capture et commenter.
 
 ![Transforms Gardel](images/transform_gardel.png)
 
@@ -84,7 +84,7 @@ N'hésitez pas à tester d'autres domaines.
 
 ## Recherche d'une identité
 
-Si vous avez déjà une identité d'une personne que vous voulez rechercher, vous pouvez procéder directement avec Maltego. Commencez avec un nouveau graphique et rajoutez une personne avec l'entité Person. 
+Si vous avez déjà une identité d'une personne que vous voulez rechercher, vous pouvez procéder directement avec Maltego. Commencez avec un nouveau graphique et rajoutez une personne avec l'entité Person.
 
 ![Person](images/person.png)
 
@@ -139,14 +139,64 @@ Tous les résultats sur le graph sont utilisables pour lancer des nouvelles rech
 
 Utilisez quelques résultats retrouvés lors de vos recherches précédentes pour lancer des transformations sur d'autres entités de types différents à celles que vous avez déjà testé (Person, Domain, email). Est-ce que vous arrivez à trouver quelque chose d'intéressant ? Est-ce que le graph devient difficile à gérer ? Documentez vos activités avec des captures et des commentaires.
 
-[GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python ! 
+[GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python !
 
 # Livrable
 
 Captures d'écran et commentaires en format PDF ou directement sur le README.md
 
-Le rendu se fait à travers un "pull request". 
+Le rendu se fait à travers un "pull request".
 
 # Echéance
 
 Le 8 mars 2021 à 13h15
+
+# Rendu
+
+## Reconnaissance de réseau
+J'ai effectué une reconnaissance de réseau sur le domaine `albasim.ch`. Ceci m'a permis d'obtenir d'autre sous-domaines tel que l'extranet et le serveur mail.
+<img src="./images/albasim_1.png" />
+
+Après avoir lancé les transformations sur le serveur web `www.albasim.ch`, Maltego obtient d'autres domaines ainsi que des adresses emails:
+<img src="./images/albasim_2.png" />
+
+En lançant les transformations sur les adresses mails, Maltego a uniquement découvert le nom des personnes - pas d'autres informations n'ont été trouvé.    
+<img src="./images/albasim_3.png" />
+
+## Recherche d'une identité
+J'ai tout d'abord commencé par me chercher moi-même, j'ai obtenu les informations suivantes:  
+<img src="./images/me.png" />
+
+Malgré la quantité d'informations, aucune des adresses emails ou des clés PGP ne m'appartiennent. Ceci démontre la difficulté d'obtenir automatiquement des informations d'une personne avec un nom de famille & prénom relativement commun.   
+
+J'ai également tenté de trouver plus d'informations sur les personnes trouvées auparavant, ceci sans grand succès:  
+<img src="./images/albasim_people.png" />
+
+## Nouvelles transformations
+La capture suivante montre les résultats obtenus avec la transformation VirusTotal uniquement:  
+<img src="./images/virustotal.png" />
+Cette transformation retourne d'autres sous-domaines que lors de l'analyse précédente. On obtient également les certificats issus, des adresses IP liées au domaine `albasim.ch`.
+
+Avec Shodan, on obtient uniquement une adresse IP ainsi que les différents ports ouverts et de diverses informations ():  
+<img src="./images/shodan.png" />
+
+La transformation avec PassiveTotal retourne principalement de nouveaux sous-domaines et certaines informations sur les librairies WEB utilisées par le domaine.  
+<img src="./images/passivetotal.png" />
+
+## Transformations supplémentaires
+| Transformation | Descriptifs    |
+| :------------- | :------------- |
+| Have I Been Pwned? | Vérifie si une adresse email/un mot de passe est apparu dans une fuite de données. |
+| dataprovider| Découvre des relations rééles entre différentes informations disponibles sur Internet. |
+| Farsight DNSDB | Effectue une analyse avec une base de données de noms de domaines, IPs, NX, MX, etc. |
+| FullContact | Obtient des adresses emails, des informations de Twitters, des numéros de téléphones. |
+| OpenCorporates | Base de données contenant 185 millions d'entreprises. |
+| Social Links CE | Recherche sur différent site les comptes appartenant à une adresse email. |
+
+### Have I Been Pwned
+J'ai lancé la transformation Have I Been Pwned sur les adresses emails au nom de `Robin Müller` trouvées précédemment. Une des adresses a subit beaucoup de fuites de données, le résultat est le suivant:  
+<img src="./images/pwned.png" />
+
+### Social Links CE
+Comme pour Have I Been Pwned, j'ai lancé les transformations de Social Links CE sur les adresses emails trouvées. Ceci me permet de trouver trois comptes Skype:
+<img src="./images/social_links.png" />
