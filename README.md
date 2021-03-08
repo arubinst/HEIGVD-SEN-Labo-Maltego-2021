@@ -64,6 +64,22 @@ Dès que **Run Transform** est sélectionné, Maltego commence son travail en tr
 
 Vous pouvez voir dans les images ci-dessous que toutes sortes d'informations apparaissent, y compris les serveurs DNS, intranet, les sites qui peuvent avoir une certaine relation avec la cible, les emails associés, les serveurs de messagerie. Qu'est-ce que vous trouvez pour votre cas ? Faites des captures d'écran pour votre rendu et ajoutez vos commentaires !
 
+<hr>
+
+**Livrables:** 
+
+J'ai choisi d'effectuer des recherches sur le nom de domaine de l'université de Lausanne: unil.ch.
+
+![image-20210301140146829](images/image-20210301140146829.png)
+
+![image-20210301140332069](images/image-20210301140332069.png)
+
+On remarque qu'on a énormément de résultats de snapshot qui ont été sauvegardé dans internet archives. On voit aussi que de nombreuses adresses email ainsi que des identités ont pu être découvertes. On voit aussi que le tout dernier élément qu'il existe 36 noms DNS qui sont rattachés au nom de domaine unil.ch. 
+
+<hr>
+
+
+
 ![Machines, names, emails](images/machines_names_emails.png)
 
 ![Servers](images/servers.png)
@@ -81,6 +97,34 @@ Lorsque les transformations seront terminées, nous aurons un graphique supplém
 ![email Bastien](images/results_gardel.png)
 
 N'hésitez pas à tester d'autres domaines.
+
+
+
+<hr>
+
+**Delivrables:**
+
+Après plusieurs essais sur les différentes identités trouvées, voici la plus intéressante: 
+
+![image-20210301141631962](images/image-20210301141631962.png)
+
+On voit en effet qu'on a pu découvrir de multiples adresses mail ainsi que des clés PGP peut-être utilisées par cette personne. En poussant les recherches un petit peu avec ces différentes adresses, on peut trouver d'autres informations intéressantes comme par exemple l'utilisation d'une des adresses mail possiblement pour la création d'un compte sur un tout autre site internet:
+
+
+
+![image-20210301142450090](images/image-20210301142450090.png)
+
+
+
+
+
+
+
+<hr>
+
+
+
+
 
 ## Recherche d'une identité
 
@@ -102,6 +146,30 @@ Dans mon cas, je trouve mon adresse email de la HEIG-VD et l'une de mes adresses
 
 Faites quelques recherches, avec des noms que vous connaissez (vous-même y-compris). Est-ce que vous arrivez à trouver des adresses email associées ? N'oubliez pas vos captures et commentaires.
 
+
+
+<hr>
+
+**Delivrables:**
+
+Pour mon propre nom, je ne trouve rien:
+
+![image-20210301142809443](images/image-20210301142809443.png)
+
+Pour Abraham Rubinstein, je retrouve la même chose:
+
+![image-20210301142914919](images/image-20210301142914919.png)
+
+Pour Sylvain Pasini, on trouve son adresse EPFL mais pas de l'HEIG:
+
+![image-20210301143141714](images/image-20210301143141714.png)
+
+
+
+<hr>
+
+
+
 ## Recherche d'une adresse email
 
 Si vous n'avez pas le nom d'une personne, mais une adresse email, vous pouvez aussi commencer votre recherche directement par l'adresse en question. Dans ce cas là, le résultat de la recherche pourrait vous trouver l'identité associée à cette adresse ainsi que d'autres détails comme, par exemple, une organisation, un numéro de téléphone, etc.
@@ -111,6 +179,31 @@ Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address*
 ![Email search](images/email_search.png)
 
 Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
+
+<hr>
+**Delivrables:**
+
+J'ai tout d'abord essayé avec un email personnel mais rien de bien intéressant. on voit juste que la capacité de cet email à atteindre la boîte de réception est très élevée.
+
+![](./images/mail1.png)
+
+Par la suite, j'ai utilisé l'adresse mail qui m'avait été créée pour le cours d'AST. J'ai effectué la recherche et voici le résultat:
+
+![](./images/mail2.png)
+
+On voit que le tag Catch All indique que le serveur affirme que l'adresse mail est valide quoi qu'il arrive. Suspect indique tout de même que le serveur a répondu avec un certain temps ce qui semble indiquer que l'adresse mail n'est plus valide. On n'apprend donc rien sur l'organisation.
+
+
+
+Finalement j'ai décidé de regarder avec mon adresse mail HEIG-VD:
+
+![](./images/mail3.png)
+
+On voit qu'une nouvelle fois on n'apprend rien de spécial sur l'organisation. Par contre, on voit que Maltego a affiché l'adresse recherchée précédemment. Il a donc compris que les deux adresses étaient liées à la même identité.
+
+
+
+<hr>
 
 
 ## Installation et utilisation de nouvelles transformations
@@ -127,6 +220,50 @@ Vous pouvez chercher vous même des informations sur d'autres transformations di
 
 Procédez maintenant à relancer les recherches que vous avez déjà effectuées, mais utilisant exclusivement les transformations que vous venez d'installer. Est-ce que vous arrivez à trouver d'autres informations ? N'oubliez pas votre capture et commentaires.
 
+
+
+<hr>
+
+**Delivrables:**
+
+<u>Virus Total</u>
+
+En effectuant des recherches sur le nom de domaine précédemment testé, on voit que l'on trouve beaucoup plus de choses:
+
+![](./images/virus1.png)
+
+On voit en effet que l'on obtient des informations sur les certificats TLS, SSL, des pdf et des catégories.
+
+
+
+En effectuant des recherches sur des éléments obtenus, si on utilise sur l'une des adresses IP trouvée, on voit que l'on obtient énormément plus de détails sur le domaine (ports, localisation, certificats SSL/TLS).
+
+![](./images/virus2.png)
+
+
+
+
+
+<u>Shodan</u>
+
+Je n'ai pas pu réaliser les tests car il y a un problème avec l'actovation du compte ou avec l'API
+
+![](./images/shodan.png)
+
+
+
+<u>PassiveTotal</u>
+
+On voit que l'on obtient des résultats différents de précédemment. Il semble montrer les différentes technologies employées pour le domaine (CentOs, JQuery, Cloudflare, OpenSSL, ...). On voit aussi qu'il renseigne sur des localisations, des certificats mais aussi donne le hash de différents malwares en lien avec le domaine.
+
+![](./images/passive.png)
+
+
+
+<hr>
+
+
+
 ## Et maintenant ?
 
 Est-ce qu'il vous restent encore des transforms gratuites à installer ? Vous pouvez donc procéder à l'installation d'autres transformations intéressantes comme Have I Been Pwned?, dataprovider, Farsight DNSB, FullContact, etc. Avoir un plus grand nombre de transformations installés augmente considérablement les résultats. Par contre, le volume d'information peut être difficile à gérer et à comprendre. Vous pouvez dans tous le cas, appliquer les transformations une par une au lieu de toutes en même temps.
@@ -140,6 +277,49 @@ Tous les résultats sur le graph sont utilisables pour lancer des nouvelles rech
 Utilisez quelques résultats retrouvés lors de vos recherches précédentes pour lancer des transformations sur d'autres entités de types différents à celles que vous avez déjà testé (Person, Domain, email). Est-ce que vous arrivez à trouver quelque chose d'intéressant ? Est-ce que le graph devient difficile à gérer ? Documentez vos activités avec des captures et des commentaires.
 
 [GitHub est aussi une source précieuse de transformations](https://github.com/search?q=maltego+transform) qui ne se trouvent pas dans le Hub. Est-ce que vous avez une idée pour une transformation ? Vous pouvez [les developper vous même](https://docs.maltego.com/support/solutions/articles/15000017605-writing-local-transforms-in-python) aussi en python ! 
+
+
+
+<hr>
+
+**Delivrables:**
+
+Voici quelques transformations que j'ai recherchées et qui m'ont semblé intéressantes à possiblement utiliser:
+
+| Transformation      | Description                                                  |
+| ------------------- | ------------------------------------------------------------ |
+| Have I been Pwned ? | Vérifie si l'adresse mail est utilisée sur des sites qui ont eu des fuites de données |
+| opencorporates      | Base de données regroupant des informations sur des entreprises du monde entier |
+| Social Links CE     | Effectue des requêtes sur différents services pour savoir si l'adresse mail possède un compte qui lui correspond |
+| Wayback Machine     | Permet la navigation vers des anciennes versions d'un site internet |
+| whoisXML            | Donnes des renseignements sur un nom de domaine/ adresse IP  |
+| FullContact         | Permet d'obtenir plus de renseignements sur une entreprise de notre choix |
+
+
+
+<u>Have I been Pwned ?</u>
+
+J'ai effectué des tests de la transformation Have I been Pwned ? avec mon adresse mail et on voit que je n'ai aucun leak.
+
+![](./images/pwned.png)
+
+Par contre sur une autre adresse que j'ai, on voit qu'elle est associée à plusieurs sites qui ont subi des fuites de données:
+
+![](./images/pwned2.png)
+
+
+
+<u>Social Links CE</u>
+
+
+
+J'ai ensuite utilisé Social Links CE sur cette dernière adresse mail et on remarque qu'il retrouve mon compte Skype associé.
+
+![](./images/social.png)
+
+<hr>
+
+
 
 # Livrable
 
