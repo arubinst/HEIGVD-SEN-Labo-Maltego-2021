@@ -112,7 +112,6 @@ Pour chercher une adresse email, il suffit d'utiliser l'entité **Email Address*
 
 Réalisez des recherches avec quelques adresses que vous connaissez, de préférence liées à une organisation. Est-ce que ça vous permet de retrouver des liens intéressants avec l'organisation ? Qu'avez-vous retrouvé en plus ? Accompagnez vos réponses avec des captures d'écran et commentaires.
 
-
 ## Installation et utilisation de nouvelles transformations
 
 Pour installer de nouvelles transforms, cliquez sur l'onglet "Transforms" et ensuite sur Transform Hub. Depuis le hub, vous pouvez installer de nouvelles transformations.
@@ -150,3 +149,94 @@ Le rendu se fait à travers un "pull request".
 # Echéance
 
 Le 8 mars 2021 à 13h15
+
+
+
+
+
+# Rendu :
+
+## Simple reconnaissance de réseau
+
+Pour commencer, j'ai tenter de scanner le domaine retraitespopulaires.ch. Le résultat montre de nombreux serveurs DNS, des serveurs de mail, des sous-domaines, des entrées DNS, des plages d'adresses IP, des snapshots ainsi que des adresses email et que le site principale.
+
+![](images/reco-reseau1.png)
+
+En exécutant toutes les transformations sur le site principale trouvé, on obtient des informations supplémentaires comme des technologies utilisé pour créé le site, des adresses email, l'adresse IP du serveur web et des site tiers/réseaux sociaux intégré.
+
+![](images/reco-reseau2.png)
+
+En effectuant une autre recherche sur une des adresses email trouvé, on arrive juste à obtenir la page du site sur laquelle cette adresse email est trouvable. Pas d'autre information intéressante. 
+
+![](images/reco-reseau3.png)
+
+## Recherche d'une identité
+
+J'ai exécuté le test sur mon nom et je n'ai rien trouvé, ce qui est rassurant. J'ai également exécuté le test sur plusieurs connaissance et aucune n'avait d'information associé.
+
+![](images/identity1.png)
+
+J'ai enfin trouvé un résultat sur le test suivant :
+
+![](images/identity2.png)
+
+Cette transformation semble assez limité et ne retourne pas beaucoup d'information intéressantes (pour les personnes que j'ai testé).
+
+## Recherche d'une adresse email
+
+Pour les adresses email, j'ai commencer par executer les transformations sur ma boite privé. Les résultats obtenu ne sont pas très interessants. Le domaine était évidement déjà connu et l'identité et fausse. Pour ce qui est des valeurs IPQS (flamme rouge). Ces valeurs indique que mon adresse email a été exposé durant un fuite de donnée (Leaked), que le fournisseur d'email est commun (Common) et que la capacité de l'email à atteindre la boîte de réception de cette adresse email est faible (Deliverability: Low). Cette dernière valeur est sûrement dû au filtrage des spams par gmail.
+
+![](images/email1.png)
+
+Nouvel essai avec un adresse email faisant partie d'une organisation. Résultat : aucune informations intéressante et l'identité est fausse.
+
+![](images/email2.png)
+
+## Installation et utilisation de nouvelles transformations
+
+En essayant d’exécuter VirusTotal sur un domaine précédemment testé, on trouve de nouvelles informations comme le certificat TLS, des documents pdf et des catégories
+
+![](images/virustotal1.png)
+
+En exécutant une deuxième recherche sur l'adresse IP trouvé, on obtient des information intéressantes sur les sous-domaine et mandats de l'entreprise.
+
+![](images/virustotal2.png)
+
+
+
+Pour Shodan, la première exécution n'a trouvé que l'adresse IP du serveur web mais en exécutant à nouveau la transformation sur cette adresse IP, de nouvelles informations intéressantes sont apparus (ports utilisé, FAI, localisation).
+
+![](images/shodan1.png)
+
+
+
+Malheureusement, je n'ai pas pu tester les transformations PassiveTotal car le site ne me laissait pas activer mon compte.
+
+
+
+## Autres transformations
+
+Voici la comparaisons des quelques transformations qui m'ont paru intéressantes :
+
+| Nom                        | Description                                                  |
+| -------------------------- | ------------------------------------------------------------ |
+| Have I Been Pwned          | Vérifie si une adresse email, un domaine ou un mdp est apparu dans une fuite de données publique |
+| Social Links CE            | Recherche sur plusieurs sites pour savoir s'il y a un compte associé à l'adresse email |
+| OpenCorporates             | Effectue des requêtes sur une base de données contenant 185 millions d'entreprises |
+| Wayback Machine            | Naviguer dans des snapshot et contenu archivé du web         |
+| FullContact                | Récupère des adresses email, contenu Twitter, domaine, personne, entreprise et numéro de téléphone- |
+| SSL Certificate Transforms | Récupère des informations sur les certificats TLS et permet d'identifier des comportement suspicieux comme des certificats délivré à DNS compromis. |
+
+
+
+J'ai testé la transformation **Have I Been Pwned** sur mon adresse email et on peut voit que cette adresse est associé à plusieurs site ayant subit des fuites de données
+
+![](images/more1.png)
+
+J'ai également testé la transformation **Social Links CE** qui a trouvé deux compte Skype associé à cette adresse email.
+
+![](images/more2.png)
+
+J'ai également tenté d’exécuté toutes les transformations sur mon adresse email HEIG-VD mais cette fois aucune information supplémentaire n'a été trouvé avec les nouvelles transformations installées.
+
+![](images/more3.png)
