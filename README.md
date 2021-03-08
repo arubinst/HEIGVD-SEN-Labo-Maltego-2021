@@ -157,27 +157,36 @@ Le 8 mars 2021 à 13h15
 J'ai effectué une reconnaissance de réseau sur le domaine `albasim.ch`. Ceci m'a permis d'obtenir d'autre sous-domaines tel que l'extranet et le serveur mail.
 <img src="./images/albasim_1.png" />
 
-Après avoir lancé les transformations sur le serveur web `www.albasim.ch`, Maltego obtient d'autres domaines ainsi que des adresses emails:
+Après avoir lancé les transformations sur le serveur web `www.albasim.ch`, Maltego obtient encore d'autres domaines ainsi que des adresses emails:
 <img src="./images/albasim_2.png" />
 
-En lançant les transformations sur les adresses mails, Maltego a uniquement découvert le nom des personnes - pas d'autres informations n'ont été trouvé.    
+En lançant les transformations sur les adresses mails, Maltego a uniquement découvert le nom des personnes - pas d'autres informations intéressantes n'ont été trouvées.    
 <img src="./images/albasim_3.png" />
 
 ## Recherche d'une identité
 J'ai tout d'abord commencé par me chercher moi-même, j'ai obtenu les informations suivantes:  
 <img src="./images/me.png" />
 
-Malgré la quantité d'informations, aucune des adresses emails ou des clés PGP ne m'appartiennent. Ceci démontre la difficulté d'obtenir automatiquement des informations d'une personne avec un nom de famille & prénom relativement commun.   
+Malgré la quantité d'informations, aucune des adresses emails ou des clés PGP ne m'appartiennent. Ceci démontre la difficulté d'obtenir automatiquement des informations d'une personne avec un nom de famille & prénom relativement commun. Il est probablement possible de filtrer les transformations (par pays par exemple), mais je n'ai pas trouvé de solution.
 
 J'ai également tenté de trouver plus d'informations sur les personnes trouvées auparavant, ceci sans grand succès:  
 <img src="./images/albasim_people.png" />
+
+## Recherche d'une adresse email
+J'ai tout d'abord commencé par chercher des informations en utilisant mon adresse de la HEIG-VD ainsi que certaines adresses email personnelles.  
+<img src="./images/email_me.png" />  
+Aucune information intéressante n'a été obtenue.
+
+J'ai également lancé les transformations sur les adresses emails trouvées précédemment, mais je n'ai rien obtenu d'intéressant.  
+<img src="./images/email_albasim.png" />  
+
 
 ## Nouvelles transformations
 La capture suivante montre les résultats obtenus avec la transformation VirusTotal uniquement:  
 <img src="./images/virustotal.png" />
 Cette transformation retourne d'autres sous-domaines que lors de l'analyse précédente. On obtient également les certificats issus, des adresses IP liées au domaine `albasim.ch`.
 
-Avec Shodan, on obtient uniquement une adresse IP ainsi que les différents ports ouverts et de diverses informations ():  
+Avec Shodan, on obtient uniquement une adresse IP ainsi que les différents ports ouverts et de diverses informations (certificats, l'entreprise qui host le domaine):  
 <img src="./images/shodan.png" />
 
 La transformation avec PassiveTotal retourne principalement de nouveaux sous-domaines et certaines informations sur les librairies WEB utilisées par le domaine.  
